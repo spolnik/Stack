@@ -1,9 +1,8 @@
 package com.wordpress.nprogramming;
 
-public interface Stack<E> {
-    void push(E value);
-    E pop();
+public interface Queue<E> {
+    void enqueue(E value);
+    E dequeue();
     E peek();
     boolean isEmpty();
 }
-
