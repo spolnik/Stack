@@ -38,4 +38,18 @@ public class SimpleStackTest {
         assertThat(stack.pop(), is(second));
         assertThat(stack.pop(), is(first));
     }
+
+    @Test
+    public void testPeekTheEmptyStack() throws Exception {
+        assertThat(stack.peek(), is((String)null));
+    }
+
+    @Test
+    public void testPushAndPeekValue() throws Exception {
+        String value = "Value";
+        stack.push(value);
+
+        assertThat(stack.peek(), is(value));
+        assertThat(stack.peek(), is(value));
+    }
 }

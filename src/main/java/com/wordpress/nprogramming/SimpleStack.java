@@ -21,6 +21,11 @@ public class SimpleStack<E> implements Stack<E> {
         return node.data;
     }
 
+    @Override
+    public E peek() {
+        return top == null ? null : top.data;
+    }
+
     final class Node<E> {
         Node<E> previous;
         E data;
