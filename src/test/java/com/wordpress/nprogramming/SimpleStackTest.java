@@ -15,11 +15,18 @@ public class SimpleStackTest {
     }
 
     @Test
+    public void testEmptyStack() throws Exception {
+        assertThat(stack.isEmpty(), is(true));
+    }
+
+    @Test
     public void testPushAndPopOneValue() throws Exception {
         String value = "Value";
         stack.push(value);
 
+        assertThat(stack.isEmpty(), is(false));
         assertThat(stack.pop(), is(value));
+        assertThat(stack.isEmpty(), is(true));
     }
 
     @Test(expected = IllegalStateException.class)
@@ -39,9 +46,9 @@ public class SimpleStackTest {
         assertThat(stack.pop(), is(first));
     }
 
-    @Test
+    @Test(expected = IllegalStateException.class)
     public void testPeekTheEmptyStack() throws Exception {
-        assertThat(stack.peek(), is((String)null));
+        stack.peek();
     }
 
     @Test

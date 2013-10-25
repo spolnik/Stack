@@ -12,7 +12,7 @@ public class SimpleStack<E> implements Stack<E> {
 
     @Override
     public E pop() {
-        if (top == null) {
+        if (isEmpty()) {
             throw new IllegalStateException("Stack is empty.");
         }
 
@@ -23,7 +23,16 @@ public class SimpleStack<E> implements Stack<E> {
 
     @Override
     public E peek() {
-        return top == null ? null : top.data;
+        if (isEmpty()) {
+            throw new IllegalStateException("Stack is empty.");
+        }
+
+        return top.data;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return top == null;
     }
 
     final class Node<E> {
